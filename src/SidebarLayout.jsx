@@ -1,7 +1,45 @@
 import logo from "./assets/logo.jpg"
 import { House,TimerReset , User,ScrollText , CircleArrowUp,CircleArrowDown , ShoppingBasket, FileText, Wrench, Scroll, Archive, ChartColumnBig, BanknoteArrowUp, Package } from 'lucide-react';
+import Calendario from "./components/calendario";
 
 export default function SidebarLayout() {
+
+const getListData = value => {
+  let listData = []; // Specify the type of listData
+  switch (value.date()) {
+    case 8:
+      listData = [
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'success', content: 'This is usual event.' },
+      ];
+      break;
+    case 10:
+      listData = [
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'success', content: 'This is usual event.' },
+        { type: 'error', content: 'This is error event.' },
+      ];
+      break;
+    case 15:
+      listData = [
+        { type: 'warning', content: 'This is warning event' },
+        { type: 'success', content: 'This is very long usual event......' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
+      ];
+      break;
+    default:
+  }
+  return listData || [];
+};
+const getMonthData = value => {
+  if (value.month() === 8) {
+    return 1394;
+  }
+};
+
 
   const itens = [
     { icone: House, nome: "Home" },
@@ -74,8 +112,9 @@ export default function SidebarLayout() {
 
         <div id="center" className="flex gap-4 mt-4">
 
-          <div className="w-[800px] h-138 bg-gray-300 rounded-md ">
-            <h2 className="text-left pl-4 pt-4 text-[#0d0252] font-semibold">Agenda</h2>
+          <div className="w-[800px] h-130 bg-gray-300 rounded-md overflow-scroll ">
+            <h2 className="text-left px-4 pt-4 text-[#0d0252] font-semibold ">Agenda</h2>
+            <Calendario />
           </div>
           <div className="flex-1 bg-neutral-300 rounded-md h-fit">
             <h2 className="text-left pl-4 pt-4 text-[#0d0252] font-semibold">Estatísticas do Sistema</h2>
