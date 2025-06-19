@@ -9,6 +9,7 @@ const Calendario = () => {
   const [tasks, setTasks] = useState({});
   const [currentTask, setCurrentTask] = useState('');
   const [editingId, setEditingId] = useState(null);
+ const [dataBr, setdataBr] = useState({});
 
   const onSelect = (date) => {
     const dateKey = date.format('YYYY-MM-DD');
@@ -16,8 +17,18 @@ const Calendario = () => {
     setModalVisible(true);
     setCurrentTask('');
     setEditingId(null);
-  };
+  
+  setdataBr({
+    ano: date.format('YYYY'),
+    mes: date.format('MM'),
+    dia: date.format('DD'),
+  })}
+  console.log(selectedDate)
+  console.log(dataBr);
+  ;
 
+  
+  
   const handleSave = () => {
     if (!currentTask.trim()) return;
 
@@ -80,7 +91,8 @@ const Calendario = () => {
       <Calendar onSelect={onSelect} cellRender={cellRender} />
 
       <Modal
-        title={`Tarefas para ${selectedDate}`}
+      
+        title={`Data: ${dataBr.dia}/${dataBr.mes}/${dataBr.ano}`}
         open={modalVisible}
         onCancel={() => {
           setModalVisible(false);
@@ -94,7 +106,7 @@ const Calendario = () => {
           {(tasks[selectedDate] || []).map((task) => (
             <div
               key={task.id}
-              className="flex justify-between items-center bg-gray-100 p-2 rounded"
+              className="flex justify-between items-center bg-gray-200 p-2 rounded "
             >
               <span>{task.text}</span>
               <div className="flex gap-2">
@@ -115,7 +127,7 @@ const Calendario = () => {
           rows={3}
           value={currentTask}
           onChange={(e) => setCurrentTask(e.target.value)}
-          placeholder="Digite sua tarefa aqui"
+          placeholder="Digite aqui o que gostaria de lembrar"
         />
       </Modal>
     </>
