@@ -1,6 +1,6 @@
-import logo from "./assets/logo.jpg"
+import logo from "../assets/logo.jpg"
 import { House,TimerReset , User,ScrollText , CircleArrowUp,CircleArrowDown , ShoppingBasket, FileText, Wrench, Scroll, Archive, ChartColumnBig, BanknoteArrowUp, Package } from 'lucide-react';
-import Calendario from "./components/calendario";
+import Calendario from "../components/calendario";
 
 export default function SidebarLayout() {
 
