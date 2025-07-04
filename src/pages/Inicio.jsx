@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import logo from "../assets/logo.jpg"
 const Login = () => {
 

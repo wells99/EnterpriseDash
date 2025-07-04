@@ -3,6 +3,7 @@ import Login from "../pages/Inicio"
 import Register from "../pages/Register"
 import RecoveryPassword from "../pages/RecoveryPassword"
 import AuthLayout from "../layouts/AuthLayout"
+import SidebarLayout from "../pages/SidebarLayout"
 const Paths = () => {
     return (
          <BrowserRouter>
@@ -11,6 +12,7 @@ const Paths = () => {
                     <Route index element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/recovery" element={<RecoveryPassword />} />
+                    <Route path="/dash" element={<SidebarLayout />} />
                 </Route>
             </Routes>
          </BrowserRouter>
